@@ -1,10 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:todolist/firebase_options.dart';
 import 'package:todolist/future.dart';
 import 'package:todolist/home.dart';
 import 'package:todolist/stream.dart';
 import 'package:todolist/theme/theme.dart';
 
-void main() => runApp(const TodoListApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const TodoListApp());
+}
 
 class TodoListApp extends StatelessWidget {
   const TodoListApp({super.key});
