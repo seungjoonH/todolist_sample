@@ -2,6 +2,9 @@
 // 할일 클래스
 class Todo {
   /// attributes
+  // 아이디
+  String? id;
+
   // 할일
   late String title;
 
@@ -10,7 +13,11 @@ class Todo {
 
   /// constructors
   // 기본 생성자
-  Todo({required this.title, this.done = false});
+  Todo({
+    this.id,
+    required this.title,
+    this.done = false,
+  });
 
   // json 생성자: json 형식 데이터로부터 객체를 생성
   Todo.fromJson(Map<String, dynamic> json) {

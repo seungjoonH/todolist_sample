@@ -20,12 +20,12 @@ class TodoListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      /// 라이트 모드 테마 적용
+      // 라이트 모드 테마 적용
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: lightColorScheme,
       ),
-      /// 다크 모드 테마 적용
+      // 다크 모드 테마 적용
       darkTheme: ThemeData(
         useMaterial3: true,
         colorScheme: darkColorScheme,
