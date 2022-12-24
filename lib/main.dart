@@ -1,9 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist/firebase_options.dart';
-import 'package:todolist/future.dart';
-import 'package:todolist/home.dart';
-import 'package:todolist/stream.dart';
+import 'package:todolist/level1/home.dart';
+import 'package:todolist/level2/home.dart';
 import 'package:todolist/theme/theme.dart';
 
 void main() async {
@@ -20,22 +19,19 @@ class TodoListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // 라이트 모드 테마 적용
+      // themeMode: ThemeMode.dark,
+      debugShowCheckedModeBanner: false,
+      // apply light mode theme
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: lightColorScheme,
       ),
-      // 다크 모드 테마 적용
+      // apply dark mode theme
       darkTheme: ThemeData(
         useMaterial3: true,
         colorScheme: darkColorScheme,
       ),
-      initialRoute: '/',
-      routes: {
-        '/future': (context) => const FutureBuilderExamplePage(),
-        '/stream': (context) => const StreamBuilderExamplePage(),
-      },
-      home: const HomePage(),
+      home: const Level2Page(),
     );
   }
 }
