@@ -8,7 +8,7 @@ import 'package:todolist/level2/model/todo.dart';
 class FirebaseController {
   /// static accessors
   static get collection => FirebaseFirestore.instance.collection('todos');
-  static get ordered => collection.orderBy('createTime');
+  static get ordered => collection.orderBy('createTime', descending: true);
   static get get => ordered.get();
   static get snapshots => ordered.snapshots();
 
@@ -34,7 +34,10 @@ Future<String?> showMyDialog(BuildContext context, [Todo? todo]) async {
     context: context,
     builder: (context) => AlertDialog(
       title: const Text('Enter your TODO'),
-      content: TextFormField(controller: controller),
+      content: TextFormField(
+        controller: controller,
+        autofocus: true,
+      ),
       actions: [
         TextButton(
           onPressed: () {

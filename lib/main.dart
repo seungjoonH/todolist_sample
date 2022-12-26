@@ -31,7 +31,7 @@ class TodoListApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: darkColorScheme,
       ),
-      home: const Level2Page(),
+      home: const Level1Page(),
     );
   }
 }

@@ -55,7 +55,10 @@ class _Level1PageState extends State<Level1Page> {
                 // build the dialog widget
                 builder: (context) => AlertDialog(
                   title: const Text('Enter your TODO'),
-                  content: TextFormField(controller: controller),
+                  content: TextFormField(
+                    controller: controller,
+                    autofocus: true,
+                  ),
                   actions: [
                     TextButton(
                       // right after the 'submit button' pressed,
@@ -91,7 +94,9 @@ class _Level1PageState extends State<Level1Page> {
           ? FutureBuilder<QuerySnapshot>(
         // for the FutureBuilder, get() function is used
         future: FirebaseFirestore.instance
-            .collection('todos').orderBy('createTime').get(),
+            .collection('todos')
+            .orderBy('createTime', descending: true)
+            .get(),
         builder: (context, snapshot) {
           // when the snapshot has no data,
           // return with null Scaffold
@@ -145,6 +150,7 @@ class _Level1PageState extends State<Level1Page> {
                             title: const Text('Enter your TODO'),
                             content: TextFormField(
                               controller: controller,
+                              autofocus: true,
                             ),
                             actions: [
                               TextButton(
@@ -190,7 +196,9 @@ class _Level1PageState extends State<Level1Page> {
       ) : StreamBuilder<QuerySnapshot>(
         // for the FutureBuilder, snapshots() function is used
         stream: FirebaseFirestore.instance
-            .collection('todos').orderBy('createTime').snapshots(),
+            .collection('todos')
+            .orderBy('createTime', descending: true)
+            .snapshots(),
         builder: (context, snapshot) {
           // when snapshot has no data, return with null Scaffold
           if (!snapshot.hasData) return const Scaffold();
@@ -241,6 +249,7 @@ class _Level1PageState extends State<Level1Page> {
                             title: const Text('Enter your TODO'),
                             content: TextFormField(
                               controller: controller,
+                              autofocus: true,
                             ),
                             actions: [
                               TextButton(
