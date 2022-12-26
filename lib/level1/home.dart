@@ -224,7 +224,7 @@ class _Level1PageState extends State<Level1Page> {
                       'createTime': todo['createTime'],
                     });
                     // recall and rebuild the screen
-                    setState(() {});
+                    // setState(() {});
                   },
                   // according to value of 'done', icon would be changed
                   icon: Icon(todo['done']
@@ -270,7 +270,7 @@ class _Level1PageState extends State<Level1Page> {
                                   // close the dialog
                                   Navigator.pop(context);
                                   // recall and rebuild the screen
-                                  setState(() {});
+                                  // setState(() {});
                                 },
                                 child: const Text('Submit'),
                               ),
@@ -286,7 +286,7 @@ class _Level1PageState extends State<Level1Page> {
                         FirebaseFirestore.instance.collection('todos')
                             .doc(todo.id).delete();
                         // recall and rebuild the screen
-                        setState(() {});
+                        // setState(() {});
                       },
                       icon: const Icon(Icons.delete),
                     ),
