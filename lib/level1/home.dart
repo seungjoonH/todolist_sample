@@ -55,7 +55,7 @@ class _Level1PageState extends State<Level1Page> {
                 // build the dialog widget
                 builder: (context) => AlertDialog(
                   title: const Text('Enter your TODO'),
-                  content: TextFormField(
+                  content: TextField(
                     controller: controller,
                     autofocus: true,
                   ),
@@ -72,7 +72,6 @@ class _Level1PageState extends State<Level1Page> {
                         });
                         // clear text editing controller:
                         // avoid remaining text in the input field later
-                        controller.clear();
                         // close the dialog
                         Navigator.pop(context);
                         // recall and rebuild the screen
@@ -83,6 +82,7 @@ class _Level1PageState extends State<Level1Page> {
                   ],
                 ),
               );
+              controller.clear();
             },
             icon: const Icon(Icons.add),
           ),
@@ -142,13 +142,14 @@ class _Level1PageState extends State<Level1Page> {
                   children: [
                     IconButton(
                       onPressed: () async {
+                        controller.text = todo['title'];
                         // asking TO-DO title dialog is displayed
                         await showDialog(
                           context: context,
                           // build the dialog widget
                           builder: (context) => AlertDialog(
                             title: const Text('Enter your TODO'),
-                            content: TextFormField(
+                            content: TextField(
                               controller: controller,
                               autofocus: true,
                             ),
@@ -174,6 +175,7 @@ class _Level1PageState extends State<Level1Page> {
                             ],
                           ),
                         );
+                        controller.clear();
                       },
                       icon: const Icon(Icons.edit),
                     ),
@@ -241,13 +243,14 @@ class _Level1PageState extends State<Level1Page> {
                   children: [
                     IconButton(
                       onPressed: () async {
+                        controller.text = todo['title'];
                         // asking TO-DO title dialog is displayed
                         await showDialog(
                           context: context,
                           // build the dialog widget
                           builder: (context) => AlertDialog(
                             title: const Text('Enter your TODO'),
-                            content: TextFormField(
+                            content: TextField(
                               controller: controller,
                               autofocus: true,
                             ),
@@ -263,6 +266,7 @@ class _Level1PageState extends State<Level1Page> {
                                     'done': todo['done'],
                                     'createTime': todo['createTime'],
                                   });
+                                  controller.clear();
                                   // close the dialog
                                   Navigator.pop(context);
                                   // recall and rebuild the screen

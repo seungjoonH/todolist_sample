@@ -34,7 +34,7 @@ Future<String?> showMyDialog(BuildContext context, [Todo? todo]) async {
     context: context,
     builder: (context) => AlertDialog(
       title: const Text('Enter your TODO'),
-      content: TextFormField(
+      content: TextField(
         controller: controller,
         autofocus: true,
       ),
