@@ -115,10 +115,8 @@ class _Level1PageState extends State<Level1Page> {
                   onPressed: () {
                     // whether TO-DO item is done or not would be updated on firebase
                     FirebaseFirestore.instance
-                        .collection('todos').doc(todo.id).set({
-                      'title': todo['title'],
+                        .collection('todos').doc(todo.id).update({
                       'done': !todo['done'],
-                      'createTime': todo['createTime'],
                     });
                     // recall and rebuild the screen
                     setState(() {});
@@ -160,10 +158,8 @@ class _Level1PageState extends State<Level1Page> {
                                 onPressed: () {
                                   // TO-DO item would be updated on firebase
                                   FirebaseFirestore.instance
-                                      .collection('todos').doc(todo.id).set({
+                                      .collection('todos').doc(todo.id).update({
                                     'title': controller.text,
-                                    'done': todo['done'],
-                                    'createTime': todo['createTime'],
                                   });
                                   // close the dialog
                                   Navigator.pop(context);
@@ -218,10 +214,8 @@ class _Level1PageState extends State<Level1Page> {
                   onPressed: () {
                     // whether TO-DO item is done or not would be updated on firebase
                     FirebaseFirestore.instance
-                        .collection('todos').doc(todo.id).set({
-                      'title': todo['title'],
+                        .collection('todos').doc(todo.id).update({
                       'done': !todo['done'],
-                      'createTime': todo['createTime'],
                     });
                     // recall and rebuild the screen
                     // setState(() {});
@@ -261,10 +255,8 @@ class _Level1PageState extends State<Level1Page> {
                                 onPressed: () {
                                   // TO-DO item would be updated on firebase
                                   FirebaseFirestore.instance
-                                      .collection('todos').doc(todo.id).set({
+                                      .collection('todos').doc(todo.id).update({
                                     'title': controller.text,
-                                    'done': todo['done'],
-                                    'createTime': todo['createTime'],
                                   });
                                   controller.clear();
                                   // close the dialog
