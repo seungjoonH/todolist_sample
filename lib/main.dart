@@ -19,7 +19,10 @@ class TodoListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // themeMode: ThemeMode.dark,
+      // change themeMode
+      themeMode: ThemeMode.light, // light theme (default),
+      // themeMode: ThemeMode.dark, // dark theme,
+      // themeMode: ThemeMode.system, // sync with device,
       debugShowCheckedModeBanner: false,
       // apply light mode theme
       theme: ThemeData(
